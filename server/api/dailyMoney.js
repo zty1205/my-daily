@@ -21,10 +21,10 @@ router.get('/find', (req, res, next) => {   // 路由为 http://localhost:4000/m
 
 router.get('/add', (req, res, next) => {   // 路由为 http://localhost:4000/money/add
     let one = {
-        expense: -998,
-        time:  "2019/1/1",
+        expense: 2.88,
+        time:  "2019-02-02 09:25:00", // 存在数据库里会有8个小时的时差
         status: 1,
-        remark: "jello"
+        remark: "红包"
     }
     dailyMoney.create(one, (err, dm) => {
         console.log("dm = ", dm)
@@ -34,6 +34,15 @@ router.get('/add', (req, res, next) => {   // 路由为 http://localhost:4000/mo
                 success: 0,
                 result: dm
             })
+            // err = {
+            //     error: 1
+            //     msg: {driver: true, name: "MongoError", index: 0, code: 11000,…}
+            //     code: 11000
+            //     driver: true
+            //     errmsg: "E11000 duplicate key error collection: myDaily.dailyMoneys index: mid_1 dup key: { : null }"
+            //     index: 0
+            //     name: "MongoError"
+            // }
         } else {
             res.json({
                 error: 1,

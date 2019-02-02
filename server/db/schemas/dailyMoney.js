@@ -8,9 +8,9 @@ const t = 1;
 
 const dailyMoney = new Schema({
     // 结构定义
-    // id 就用 ObjectId
+    // id 就用 ObjectId 但有可能重复提交 所以要有一定 防重复提交 当然time 的unique也可防止
     expense: { type: Number, required: true },
-    time:  { type: Date, required: true },
+    time:  { type: Date, required: true, unique: true },
     status: { type: Number, default: STATUS_NORMAL },
     remark: { type: String, trim: true}
 }, {
