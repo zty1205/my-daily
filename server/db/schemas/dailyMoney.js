@@ -17,7 +17,7 @@ const dailyMoney = new Schema({
     // 配置项
     collection: 'myDaily',
     versionKey: false,
-    timestamps: { // 自动生成创建时间和更新时间
+    timestamps: { // 自动生成创建时间和更新时间 compass 在list 查看时有8个小时的 偏移  table就不会了
       createdAt: true,
       updatedAt: true,
     },
