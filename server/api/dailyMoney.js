@@ -19,9 +19,16 @@ router.get('/find', (req, res, next) => {   // 路由为 http://localhost:4000/m
     })
 })
 
-router.get('/add', (req, res, next) => {   // 路由为 http://localhost:4000/money/add
+router.post('/add', (req, res, next) => {   // 路由为 http://localhost:4000/money/add
 
-    dailyMoney.create(one, (err, dm) => {
+    console.log("body = ", req.body)
+
+    let dm = {...req.body}
+    if (!dm._id) {
+        delete dm._id
+    }
+
+    dailyMoney.create(dm, (err, dm) => {
         console.log("dm = ", dm)
         // res.send(dm)
         if (!err) {

@@ -1,6 +1,6 @@
 
 const dbConfig = {
-    url: "mongodb://localhost:27017/myDaily",
+    url: "mongodb://localhost:27017/myDaily", // "testMyDaily" "myDaily"
     options: {
         useNewUrlParser: true,
         reconnectTries: 10, // 总是尝试重新连接

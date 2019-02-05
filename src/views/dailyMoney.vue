@@ -52,16 +52,18 @@ export default {
     },
     methods: {
         onSearch(page, goTop) {
-            axios.get("http://localhost:4000/money/find").then(res => {
+            this.loading = true
+            axios.get("/api/money/find").then(res => {
                 console.log("res = ", res)
                 this.tableData = res.data.list
+                this.loading = false
             })
         },
         onAdd() {
             this.$refs.addOrUpdateDialog.onShow()
         },
         handleSuccess(goTop) {
-
+            this.onSearch()
         }
     }
 }

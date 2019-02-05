@@ -25,5 +25,5 @@ const dailyMoney = new Schema({
 });
 // 第三个参数是 MongoDB具体的 Collection Name 
 // 如果没有第三个参数 据说是查找的是dailyMoneys 的 Collection 但是死都查不到数据 还是添加第三个参数比较稳健
-const DailyMoney = mongoose.model('dailyMoney', dailyMoney, "dailyMoneys")
+const DailyMoney = mongoose.model('dailyMoney', dailyMoney, "dailyMoneys") // "dailyMoneys" "testMyDailyMoneys"
 module.exports = DailyMoney
