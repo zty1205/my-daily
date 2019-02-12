@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const dbConfig = require("./db/dbConfig")
-const dailyMoneyRoute = require("./api/dailyMoney.js")
+const dailyExpenseApi = require("./api/dailyExpenseApi.js")
 
 const env = process.env.NODE_ENV || 'development'
 
@@ -28,7 +28,7 @@ app.all('*', function(req, res, next) {
 });
 
 app.use(bodyParser.json())
-app.use('/money', dailyMoneyRoute)
+app.use('/dailyExpense', dailyExpenseApi)
 
 
 // 错误处理 中间件

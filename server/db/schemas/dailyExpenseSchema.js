@@ -4,9 +4,7 @@ const Schema = mongoose.Schema;
 const STATUS_NORMAL = 1;
 const STATUS_DELETE = 0;
 
-const t = 1;
-
-const dailyMoney = new Schema({
+const dailyExpenseSchema = new Schema({
     // 结构定义
     // id 就用 ObjectId 但有可能重复提交 所以要有一定 防重复提交 当然time 的unique也可防止
     expense: { type: Number, required: true },
@@ -25,5 +23,5 @@ const dailyMoney = new Schema({
 });
 // 第三个参数是 MongoDB具体的 Collection Name 
 // 如果没有第三个参数 据说是查找的是dailyMoneys 的 Collection 但是死都查不到数据 还是添加第三个参数比较稳健
-const DailyMoney = mongoose.model('dailyMoney', dailyMoney, "dailyMoneys") // "dailyMoneys" "testMyDailyMoneys"
-module.exports = DailyMoney
+const dailyExpenses = mongoose.model('dailyExpense', dailyExpenseSchema, "dailyExpenses") // "dailyMoneys" "testMyDailyMoneys"
+module.exports = dailyExpenses
